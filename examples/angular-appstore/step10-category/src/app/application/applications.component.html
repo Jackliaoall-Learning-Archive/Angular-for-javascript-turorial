@@ -1,0 +1,54 @@
+<div class="container">
+	<!-- 添加应用信息表单 -->
+	<div style="margin: 20px auto; text-align: center;">
+		<form class="form-inline" #addForm>
+			<div class="form-group">
+				<label for="addId">id</label>
+				<input type="text" style="width: 100px;" class="form-control" id="addId" name="id" required #id>
+			</div>
+			<div class="form-group">
+				<label for="addName">应用名称</label>
+				<input type="text" class="form-control" id="addName" name="name" required #name>
+			</div>
+			<div class="form-group">
+				<label for="addDownloads">下载量</label>
+				<input type="text" style="width: 100px;" class="form-control" id="addDownloads" name="downloads" required #sal>
+			</div>
+			<div class="form-group">
+				<label for="addCategory">分类</label>
+				<select class="form-control" id="addCategory" name="category" #category>
+				   <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+				</select>
+			</div>
+			<button type="button" class="btn btn-success" (click)="create(addForm)">添加</button>
+		</form>
+	</div>
+	
+	<!-- 列表 -->
+	<table class="table table-hover">
+		<tr>
+			<th>编号</th>
+			<th>应用名称</th>
+			<th>下载量</th>
+			<th>类别</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let application of applications; trackBy:trackByApplications" [class.active]="application === selectedApplication" (click)="gotoDetail(application)">
+			<td>
+				{{application.id}}
+			</td>
+			<td>
+				{{application.name}}
+			</td>
+			<td>
+				{{application.downloads}}
+			</td>
+			<td>
+				{{application.category}}
+			</td>
+			<td width="100">
+				<button class="btn btn-danger" (click)="delete(application);$event.stopPropagation();">删除</button>
+			</td>
+		</tr>
+	</table>
+</div>

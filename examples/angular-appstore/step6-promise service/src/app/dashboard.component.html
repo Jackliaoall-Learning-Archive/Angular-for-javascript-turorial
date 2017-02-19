@@ -1,0 +1,29 @@
+<div class="row" style="margin: 20px;">
+	<div class="col-md-1"></div>
+	<div class="bg-success col-md-5">
+		<h3>员工统计</h3>
+		<p>共 {{empCount}} 员工</p>
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				薪水 Top3 员工
+			</a>
+			<a href="#" class="list-group-item" *ngFor="let emp of sortEmps" routerLink="/emps/{{emp.id}}">
+				{{emp.name}}
+				<span class="badge">${{emp.sal}}</span>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-1"></div>
+	<div class="bg-info col-md-5">
+		<h3>部门统计</h3>
+		<p>共 {{deptCount}} 部门</p>
+		<ul class="list-group">
+			<li class="list-group-item" *ngFor="let dept of depts">
+				{{dept}}
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+

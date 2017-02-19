@@ -1,0 +1,12 @@
+<div class="form-group">
+  <h3>应用即刻搜索</h3>
+  <input class="form-control" #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="请输入应用名" />
+  <div>
+  	<div *ngIf="applications">
+	    <div *ngFor="let application of applications | async"
+	         (click)="gotoDetail(application)" class="search-result" >
+	      {{application.name}}
+	    </div>
+    </div>
+  </div>
+</div>

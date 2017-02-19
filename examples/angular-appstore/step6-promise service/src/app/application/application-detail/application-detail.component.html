@@ -1,0 +1,19 @@
+<div class="container" [hidden]="submitted" *ngIf="selectedApplication">
+    <h2>{{selectedApplication.name | uppercase}} 详情!</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">应用名</label>
+        <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="selectedApplication.name">
+      </div>
+      <div class="form-group">
+        <label for="downloads">下载量</label>
+        <input type="text" class="form-control" id="downloads" name="downloads" required [(ngModel)]="selectedApplication.downloads">
+      </div>
+      <div class="form-group">
+        <label for="category">分类</label>
+        <select class="form-control" id="category" name="category" required [(ngModel)]="selectedApplication.category">
+		    <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+		  </select>
+      </div>
+    </form>
+</div>

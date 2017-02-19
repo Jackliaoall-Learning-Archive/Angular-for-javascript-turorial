@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<!--<script>document.write('<base href="' + document.location + '" />');</script>-->
+		<base href="/" />
+		<meta charset="utf-8" />
+		<title>Angular AppStore</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- CSS-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/forms.css">
+
+		<!-- 1. Load libraries -->
+		<!-- IE required polyfill -->
+		<script src="node_modules/core-js/client/shim.min.js"></script>
+
+		<script src="node_modules/zone.js/dist/zone.js"></script>
+
+		<script src="node_modules/rxjs/bundles/Rx.js"></script>
+		<script src="node_modules/@angular/core/bundles/core.umd.js"></script>
+		<script src="node_modules/@angular/common/bundles/common.umd.js"></script>
+		<script src="node_modules/@angular/compiler/bundles/compiler.umd.js"></script>
+		<script src="node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+		<script src="node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+		<script src="node_modules/@angular/forms/bundles/forms.umd.min.js"></script>
+		<script src="node_modules/@angular/router/bundles/router.umd.min.js"></script>
+
+
+		<!-- Class 类 -->
+		<script src="app/category/Category.js"></script>
+		<script src="app/application/Application.js"></script>
+		
+		<!-- Mock-->
+		<script src="app/mock/mock-applications.js"></script>
+		
+		<!-- Service 服务 -->
+		<script src="app/application/application.service.js"></script>
+		
+		<!-- Component 组件-->
+		<!-- Application -->
+		<script src="app/application/applications.component.js"></script>
+		<!-- ApplicationComponent -->
+		<script src="app/application/application-detail/application-detail.component.js"></script>
+		<!-- Dashboard -->
+		<script src="app/dashboard.component.js"></script>
+		
+		<!-- Module 模块-->
+		<script src="app/application/applications.module.js"></script>
+		
+		<!-- Router 路由 -->
+		<script src="app/app-routing.module.js"></script>
+			
+		
+		<!-- 2. Load our 'modules' -->
+		<script src='app/app.component.js'></script>
+		<script src='app/app.module.js'></script> 
+		<script src='main.js'></script>
+
+	</head>
+
+	<!-- 3. Display the application -->
+	<body>
+		<appstore-app>Loading...</appstore-app>
+	</body>
+</html>

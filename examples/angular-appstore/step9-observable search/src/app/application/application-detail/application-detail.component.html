@@ -1,0 +1,30 @@
+<div class="container" [hidden]="submitted" *ngIf="selectedApplication" >
+	<button class="btn btn-default" (click)="goBack()">返回</button>
+    <h2>{{selectedApplication.name | uppercase}} 详情!</h2>
+    <form #applicationForm="ngForm">
+      <div class="form-group">
+        <label for="name">应用名</label>
+        <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="selectedApplication.name"
+        	#name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+         	必须填写应用名称
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="downloads">下载量</label>
+        <input type="text" class="form-control" id="downloads" name="downloads" required [(ngModel)]="selectedApplication.downloads"
+        	#downloads="ngModel">
+        <div [hidden]="downloads.valid || downloads.pristine" class="alert alert-danger">
+         	必须填写下载量
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category">分类</label>
+        <select class="form-control" id="category" name="category" required [(ngModel)]="selectedApplication.category">
+		    <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+		  </select>
+      </div>
+       <button type="button" class="btn btn-success" [disabled]="!applicationForm.form.valid" 
+      	(click)="save()">Save</button>
+    </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+	<h2> {{title}} </h2>
+	<div style="margin: 20px auto; text-align: center;">
+		<form class="form-inline"  #addForm>
+			<div class="form-group">
+				<label for="addId">应用名称</label>
+				<input type="text" class="form-control" name="category" required #category>
+			</div>
+			<button type="button" class="btn btn-success" (click)="add(category.value);addForm.reset();">添加</button>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<div class=" col-md-6 col-sm-6">
+		
+		<ul class="list-group">
+		  <a class="list-group-item" style="line-height: 30px;height: 50px;" *ngFor="let category of categories; trackBy:trackByCategories" (click)="onSelect(category)" [class.active]="category === selectedCategory" >
+		  	{{category.name}}
+		  	<div class="pull-right">
+		  		<button type="button" class="btn btn-danger" (click)="delete(category);$event.stopPropagation()">删除</button>
+		  	</div>
+		  </a>
+		</ul>
+		
+	</div>
+	
+	<div class=" col-md-6 col-sm-6">
+		
+		<div *ngIf="selectedCategory">
+			
+			<form class="form"  #editForm="ngForm" >
+				<div class="form-group">
+					<label for="addId">应用名称</label>
+					<input type="text" class="form-control" name="dept" [(ngModel)]="selectedCategory.name" 
+						[value]="selectedCategory.name" required #category="ngModel">
+						<div [hidden]="category.valid || category.pristine" class="alert alert-danger">
+				          	必须填写分类名称
+				        </div>
+				</div>
+				<button type="button" class="btn btn-primary" [disabled]="!editForm.form.valid" 
+					 (click)="update();selectedCategory=null;">修改</button>
+			</form>
+		</div>
+		
+	</div>
+</div>
+
+
+
+<!-- Emp Detail -->
+<!-- step3 -->
+<!--<emp-detail></emp-detail>-->
+<!-- step4 -->
+<!--<dept-detail [depts]="depts" [selectedEmp]="selectedEmp"></dept-detail>-->
+

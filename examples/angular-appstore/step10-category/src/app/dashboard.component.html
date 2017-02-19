@@ -1,0 +1,38 @@
+<div class="row" style="margin: 20px;">
+	<div class="col-md-4 col-sm-4">
+		<div class="bg-info" style="padding: 10px;">
+			<h3>分类统计</h3>
+			<p>共 {{categoryCount}} 分类</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item" *ngFor="let category of categories" routerLink="/categories/applications/{{category.name}}">
+					{{category.name}}
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-4 col-sm-4">
+		<div class="bg-success" style="padding: 10px;">
+			<h3>应用统计</h3>
+			<p>共 {{applicationCount}} 应用</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item active">
+					下载量 Top3 应用
+				</a>
+				<a href="#" class="list-group-item" *ngFor="let application of sortApplications" routerLink="/applications/{{application.id}}">
+					{{application.name}}
+					<span class="badge">${{application.downloads}}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-4 col-sm-4">
+		<div class="bg-info" style="padding: 10px;">
+			<application-search></application-search>
+		</div>
+	</div>
+</div>
+
+
+
